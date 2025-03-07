@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Ticket</title>
+    <style>
+        .ticket {
+            width: 350px;
+            margin: 20px auto;
+            border: 2px dashed #333;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f9f9f9;
+        }
+        .details { text-align: left; }
+        .qr-code img { width: 100px; }
+    </style>
+</head>
+<body>
+    <h2>Event Ticket</h2>
+    <div class="ticket">
+        <div class="details">
+            <p><strong>Event:</strong> {{ booking.event }}</p>
+            <p><strong>Name:</strong> {{ booking.participant_name }}</p>
+            <p><strong>Age:</strong> {{ booking.age }}</p>
+            <p><strong>Seat No:</strong> {{ booking.id }}</p>
+            <p><strong>No of tickets:</strong>{{booking.num_tickets}}</p>
+        </div>
+        <hr>
+        <div class="qr-code">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data={{ booking.id }} {{booking.participant_name}}" alt="QR Code">
+        </div>
+    </div>
+</body>
+</html>

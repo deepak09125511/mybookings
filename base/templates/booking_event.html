@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Booking Form</title>
+</head>
+<body>
+    <h3>Book Tickets for {{event.name}} </h3>
+
+    <form method="POST" action="">
+        {% csrf_token %}
+
+        <label for="id_participant_name">Name: </label>
+        {{form.participant_name}}
+          <hr>
+        <label for="id_age">Age: </label>
+        {{form.age}}
+          <hr>
+        <label for="id_sex">Sex: </label>
+        {{form.sex}}
+          <hr>
+        <label for="id_num_tickets">No of Tickets: </label>
+        {{form.num_tickets}}
+          <button>Submit</button>
+    </form>
+    {% if booking %}
+    <a href="{% url 'generate_ticket' booking.id %}">
+        <button>Download Ticket</button>
+    </a>
+    {% endif %}
+    
+</body>
+</html>
