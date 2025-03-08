@@ -1,0 +1,82 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Ticket Container */
+.ticket {
+    display: flex;
+    width: 600px;
+    height: 250px;
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+/* Left Side (Details) */
+.details {
+    width: 70%;
+    padding: 25px;
+    background: linear-gradient(135deg, #ff6600, #ffcc00);
+    color: white;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.details p {
+    margin: 8px 0;
+}
+
+/* Right Side (QR Code) */
+.qr-section {
+    width: 30%;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+}
+
+/* Scan Text */
+.scan-text {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #ff6600;
+}
+
+/* QR Code */
+.qr-code img {
+    width: 120px;
+    height: 120px;
+}
+
+/* Dotted Partition Line */
+.partition-line {
+    position: absolute;
+    left: 70%;
+    top: 15px;
+    bottom: 15px;
+    width: 3px;
+    background: repeating-linear-gradient(
+        to bottom,
+        #ff6600,
+        #ff6600 8px,
+        transparent 8px,
+        transparent 16px
+    );
+    border-radius: 5px;
+}
+
