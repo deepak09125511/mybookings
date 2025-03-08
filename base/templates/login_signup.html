@@ -1,5 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Booking App</title>
+    <link rel="stylesheet" href="{% static 'style_login_signup.css' %}">
+
+</head>
+<body>
+
 {% if page == "login" %}
-<div>
+<div class="form-container">
     <form method="POST" action="">
         {% csrf_token %}
 
@@ -13,7 +25,7 @@
     </form>
 </div>
 {% else %}
-<div>
+<div class="form-container">
     <form action="" method="POST">
         {% csrf_token %}
         {{form.as_p}}
@@ -24,3 +36,4 @@
     </form>
 </div>
 {% endif %}
+</body>
