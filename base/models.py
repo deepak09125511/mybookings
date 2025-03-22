@@ -23,3 +23,12 @@ class Booking(models.Model):
 
     def __str__(self):
         return f"{self.user.username} booked {self.num_tickets} tickets for {self.event} on {self.booked_on}"
+
+class Message(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    body=models.TextField()
+    updates=models.DateTimeField(auto_now_add=True)
+    created=models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.body[0:100]

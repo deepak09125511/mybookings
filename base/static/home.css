@@ -1,0 +1,197 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ffcc00, #ff6600);
+    color: #333;
+    text-align: center;
+}
+
+/* Profile (Top Left) */
+.profile {
+    position: absolute;
+    top: 10px;
+    left: 145px;
+    background: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+}
+
+.profile a h2 {
+    color: #ff6600;
+    margin: 0;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+.reg {
+    display: flex;
+    justify-content: flex-end; /* Align items to the right */
+    align-items: center; /* Align vertically in case of multiple elements */
+    gap: 15px; /* Adds spacing between links */
+}
+.reg a {
+    text-decoration: none; /* Removes underline */
+    color: black; /* Ensures link is visible */
+}
+/* Container */
+.container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #ffcc00; /* Bright Yellow */
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Content Layout */
+.content {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+/* Events Section (60%) */
+.events-container {
+    flex: 2;
+}
+
+.events {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.event-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    width: 280px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.event-card button {
+    background: linear-gradient(135deg, #ffcc00, #ff6600);
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin-top: 10px;
+}
+
+.event-card button:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 5px 15px rgba(255, 165, 0, 0.5);
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Chat Section (30%) */
+.chat-container {
+    flex: 3;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    height: 550px;  /* Increased Height */
+}
+
+/* Chat Messages */
+.chat-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 450px; /* Adjusted */
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    scroll-behavior: smooth;
+}
+
+.message {
+    background: #ff6600;
+    color: white;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.message span {
+    font-size: 0.8rem;
+    color: #fff;
+    opacity: 0.8;
+}
+
+/* Comment Box */
+.comment-box {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.comment-box input {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+.comment-box button {
+    background: linear-gradient(135deg, #ffcc00, #ff6600);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin-left: 10px;
+}
+
+.comment-box button:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 5px 15px rgba(255, 165, 0, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .chat-container {
+        width: 100%;
+    }
+
+    .profile {
+        position: relative;
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+
+

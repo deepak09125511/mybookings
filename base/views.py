@@ -12,6 +12,7 @@ from .form import customuserform
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 from .models import Booking
+from .models import Message
 
 
 
@@ -36,6 +37,7 @@ def log_in(request):
         
         if authenticated_user is not None:
             login(request,user)
+            request.session['cached_username'] = username 
             return redirect('home')
     context ={'page':page}
     return render(request,'login_signup.html',context)
@@ -63,7 +65,18 @@ def log_out(request):
 
 def home(request):
     events = Event.objects.all()  # Get all events from the database
-    return render(request, 'home.html', {'events': events}) 
+    all_messages = Message.objects.all().order_by('created')
+    
+    if request.method == 'POST':
+        if request.user.is_authenticated:
+            message = Message.objects.create(
+                 user = request.user,
+                 body = request.POST.get('body'),
+             )
+            return redirect('home')
+        else:
+            messages.error(request,'Login/Signup required')
+    return render(request, 'home.html', {'events': events,'all_messages':all_messages}) 
 
 @login_required(login_url = 'login')
 def booking_event(request,event_id):
@@ -88,6 +101,12 @@ def booking_event(request,event_id):
 def generate_ticket(request,booking_id):
     booking = get_object_or_404(Booking,id = booking_id)
     return render(request,'tickets.html',{'booking':booking})
+
+def user_profile(request,user_id):
+    cached_username = request.session.get('cached_username', 'Guest')
+    user = get_object_or_404(User,id=user_id)
+    booked_events = Booking.objects.filter(user=user)
+    return render(request,'profile.html',{'user':user,'booked_events':booked_events, 'cached_username': cached_username})
 
 
 

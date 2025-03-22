@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Event,Booking
+from .models import Message
 
 # Register your models here.
 class BookingAdmin(admin.ModelAdmin):
@@ -7,3 +8,4 @@ class BookingAdmin(admin.ModelAdmin):
 
 admin.site.register(Event)
 admin.site.register(Booking)
+admin.site.register(Message)

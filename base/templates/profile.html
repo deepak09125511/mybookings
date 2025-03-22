@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{% static 'profile.css' %}">
+    <!-- Import Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="profile-outer">
+        <div class="profile-inner fade-in">
+            <div class="profile-header">
+                <h3>Username: {{ cached_username }}</h3>
+                <h3>User ID: {{ user.id }}</h3>
+            </div>
+            
+            {% if booked_events %}
+                <div class="booked-events">
+                    <h3>Booked Events:</h3>
+                    <ul>
+                        {% for booking in booked_events %}
+                            <li><a href="{% url 'generate_ticket' booking.id %}" style="text-decoration: none;">{{ booking.event.name }} - {{ booking.num_tickets }} Tickets </a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% else %}
+                <p style="text-align: center; color: #ff6f00; font-weight: 600;">No bookings yet</p>
+            {% endif %}
+        </div>
+    </div>
+    
+    <script>
+        // JavaScript for fade-in animation
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(() => {
+                document.querySelector(".fade-in").classList.add("show");
+            }, 200);
+        });
+    </script>
+</body>
+</html>
